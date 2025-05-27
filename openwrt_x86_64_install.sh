@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#bash <(curl -s -L https://raw.githubusercontent.com/E-dot/SocatProxy/main/install.sh))
+#bash <(curl -s -L https://raw.githubusercontent.com/735840086/hhminer/main/SocatProxy)
 clear
 
 [ $(id -u) != "0" ] && { echo "无权限安装。"; exit 1; }
