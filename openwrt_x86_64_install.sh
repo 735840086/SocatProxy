@@ -32,13 +32,13 @@ PATH_EXEC="SocatProxy"
 PATH_NOHUP="${PATH_SocatProxy}/nohup.out"
 PATH_ERR="${PATH_SocatProxy}/err.log"
 
-ROUTE_1="https://raw.githubusercontent.com"
-ROUTE_2="https://raw.githubusercontent.com"
+ROUTE_1="https://raw.githubusercontent.com/735840086/hhminer/main"
+ROUTE_2="https://raw.githubusercontent.com/735840086/hhminer/main"
 # ROUTE_2="https://hub.njuu.cf"
 # ROUTE_3="https://hub.yzuu.cf"
 # ROUTE_4="https://hub.nuaa.cf"
 
-ROUTE_EXEC_1="/735840086/hhminer/main/SocatProxy"
+ROUTE_EXEC_1="/SocatProxy"
 
 TARGET_ROUTE=""
 TARGET_ROUTE_EXEC=""
