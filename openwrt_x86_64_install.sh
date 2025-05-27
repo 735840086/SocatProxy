@@ -38,7 +38,7 @@ ROUTE_2="https://raw.githubusercontent.com"
 # ROUTE_3="https://hub.yzuu.cf"
 # ROUTE_4="https://hub.nuaa.cf"
 
-ROUTE_EXEC_1="https://raw.githubusercontent.com/735840086/hhminer/main/SocatProxy"
+ROUTE_EXEC_1="/735840086/hhminer/main/SocatProxy"
 
 TARGET_ROUTE=""
 TARGET_ROUTE_EXEC=""
