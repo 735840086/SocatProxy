@@ -458,7 +458,7 @@ fi
 
 echo "------ SocatProxy ------"
 echo "仅支持x86CPU架构安装【${UNAME}】"
-echo 即将安装。
+echo 是否安装？
 echo "---------------------"
 echo "1. 安装x86-64-SocatProxy"
 echo "⭐️⭐️⭐️⭐️⭐️⭐️"
