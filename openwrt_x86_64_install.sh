@@ -1,6 +1,9 @@
 #!/bin/bash
 
-#bash <(curl -s -L )
+#bash <(curl -s -L https://raw.githubusercontent.com/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.njuu.cf/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.yzuu.cf/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.nuaa.cf/EvilGenius-dot/SocatProxy/main/install.sh)
 clear
 
 [ $(id -u) != "0" ] && { echo "缺少权限安装。"; exit 1; }
@@ -39,6 +42,14 @@ ROUTE_2="https://raw.githubusercontent.com"
 # ROUTE_4="https://hub.nuaa.cf"
 
 ROUTE_EXEC_1="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_2="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_3="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_4="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_5="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_6="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_7="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_8="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_9="/735840086/hhminer/main/socatproxy"
 
 TARGET_ROUTE=""
 TARGET_ROUTE_EXEC=""
@@ -447,9 +458,17 @@ fi
 
 echo "------SocatProxy------"
 echo "仅支持x86CPU架构安装【${UNAME}】"
-echo 即将安装。
+echo 是否安装？
 echo "---------------------"
 echo "1. 安装x86-64-SocatProxy"
+echo "⭐️⭐️⭐️⭐️⭐️⭐️"
+echo "⭐️⭐️⭐️⭐️⭐️⭐️"
+echo "⭐️⭐️⭐️⭐️⭐️⭐️"
+echo "⭐️⭐️⭐️⭐️⭐️⭐️"
+echo "⭐️⭐️⭐️⭐️⭐️⭐️"
+echo "⭐️⭐️⭐️⭐️⭐️⭐️"
+echo "⭐️⭐️⭐️⭐️⭐️⭐️"
+echo "⭐️⭐️⭐️⭐️⭐️⭐️"
 echo ""
 
 read -p "$(echo -e "[1]：")" targetExec
