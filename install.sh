@@ -457,10 +457,10 @@ fi
 
 
 echo "------ SocatProxy ------"
-echo "当前CPU架构【${UNAME}】"
-echo 架构安装选择。
-echo "⭐️⭐️⭐️⭐️⭐️⭐️"
-echo "1. X86-64"
+echo "仅支持x86CPU架构安装【${UNAME}】"
+echo 即将安装。
+echo "---------------------"
+echo "1. 安装x86-64-SocatProxy"
 echo "⭐️⭐️⭐️⭐️⭐️⭐️"
 echo "⭐️⭐️⭐️⭐️⭐️⭐️"
 echo "⭐️⭐️⭐️⭐️⭐️⭐️"
