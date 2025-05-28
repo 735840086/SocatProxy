@@ -1,6 +1,9 @@
 #!/bin/bash
 
-#bash <(curl -s -L )
+#bash <(curl -s -L https://raw.githubusercontent.com/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.njuu.cf/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.yzuu.cf/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.nuaa.cf/EvilGenius-dot/SocatProxy/main/install.sh)
 clear
 
 [ $(id -u) != "0" ] && { echo "缺少权限安装。"; exit 1; }
@@ -455,7 +458,7 @@ fi
 
 echo "------SocatProxy------"
 echo "仅支持x86CPU架构安装【${UNAME}】"
-echo 即将安装。
+echo 是否安装？
 echo "---------------------"
 echo "1. 安装x86-64-SocatProxy"
 echo "⭐️⭐️⭐️⭐️⭐️⭐️"
