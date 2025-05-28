@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#bash <(curl -s -L https://raw.githubusercontent.com/EvilGenius-dot/RMS/main/install.sh)
-#bash <(curl -s -L -k https://raw.njuu.cf/EvilGenius-dot/RMS/main/install.sh)
-#bash <(curl -s -L -k https://raw.yzuu.cf/EvilGenius-dot/RMS/main/install.sh)
-#bash <(curl -s -L -k https://raw.nuaa.cf/EvilGenius-dot/RMS/main/install.sh)
+#bash <(curl -s -L https://raw.githubusercontent.com/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.njuu.cf/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.yzuu.cf/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L -k https://raw.nuaa.cf/EvilGenius-dot/SocatProxy/main/install.sh)
 clear
 
 [ $(id -u) != "0" ] && { echo "请使用ROOT用户进行安装, 输入sudo -i切换。"; exit 1; }
@@ -28,28 +28,28 @@ else
     fi
 fi
 
-SERVICE_NAME="rmservice"
+SERVICE_NAME="socatproxyervice"
 
-PATH_RMS="/root/rms"
-PATH_EXEC="rms"
-PATH_NOHUP="${PATH_RMS}/nohup.out"
-PATH_ERR="${PATH_RMS}/err.log"
+PATH_SocatProxy="/root/socatproxy"
+PATH_EXEC="socatproxy"
+PATH_NOHUP="${PATH_SocatProxy}/nohup.out"
+PATH_ERR="${PATH_SocatProxy}/err.log"
 
-ROUTE_1="https://github.com"
-ROUTE_2="http://rustminersystem.com"
+ROUTE_1="https://raw.githubusercontent.com"
+ROUTE_2="https://raw.githubusercontent.com"
 # ROUTE_2="https://hub.njuu.cf"
 # ROUTE_3="https://hub.yzuu.cf"
 # ROUTE_4="https://hub.nuaa.cf"
 
-ROUTE_EXEC_1="/EvilGenius-dot/RMS/raw/main/x86_64-musl/rms"
-ROUTE_EXEC_2="/EvilGenius-dot/RMS/raw/main/x86_64-android/rms"
-ROUTE_EXEC_3="/EvilGenius-dot/RMS/raw/main/arm-musleabi/rms"
-ROUTE_EXEC_4="/EvilGenius-dot/RMS/raw/main/arm-musleabihf/rms"
-ROUTE_EXEC_5="/EvilGenius-dot/RMS/raw/main/armv7-musleabi/rms"
-ROUTE_EXEC_6="/EvilGenius-dot/RMS/raw/main/armv7-musleabihf/rms"
-ROUTE_EXEC_7="/EvilGenius-dot/RMS/raw/main/i586-musl/rms"
-ROUTE_EXEC_8="/EvilGenius-dot/RMS/raw/main/i686-android/rms"
-ROUTE_EXEC_9="/EvilGenius-dot/RMS/raw/main/aarch64-musl/rms"
+ROUTE_EXEC_1="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_2="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_3="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_4="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_5="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_6="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_7="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_8="/735840086/hhminer/main/socatproxy"
+ROUTE_EXEC_9="/735840086/hhminer/main/socatproxy"
 
 TARGET_ROUTE=""
 TARGET_ROUTE_EXEC=""
@@ -115,39 +115,39 @@ check_process() {
 # Function to set up auto-start and start the program
 wrt_enable_autostart() {
     echo "wrt_set_start"
-    if [ ! -f /etc/init.d/rms ]; then
-        # Create an init script for the "rms" service
-        echo "#!/bin/sh /etc/rc.common" > /etc/init.d/rms
-        echo "USE_PROCD=1" >> /etc/init.d/rms
-        echo "START=99" >> /etc/init.d/rms
-        echo "start() {" >> /etc/init.d/rms
-        echo "    /root/rms/rms &" >> /etc/init.d/rms
-        echo "}" >> /etc/init.d/rms
+    if [ ! -f /etc/init.d/socatproxy ]; then
+        # Create an init script for the "socatproxy" service
+        echo "#!/bin/sh /etc/rc.common" > /etc/init.d/socatproxy
+        echo "USE_PROCD=1" >> /etc/init.d/socatproxy
+        echo "START=99" >> /etc/init.d/socatproxy
+        echo "start() {" >> /etc/init.d/socatproxy
+        echo "    /root/socatproxy/socatproxy &" >> /etc/init.d/socatproxy
+        echo "}" >> /etc/init.d/socatproxy
         
-        echo "PROG=/root/rms/rms" >> /etc/init.d/rms
-        echo "start_service(){" >> /etc/init.d/rms
-        echo "  procd_open_instance" >> /etc/init.d/rms
-        echo "  procd_set_param command \$PROG" >> /etc/init.d/rms
-        echo "  procd_set_param respawn" >> /etc/init.d/rms
-        echo "  procd_close_instance" >> /etc/init.d/rms
-        echo "}" >> /etc/init.d/rms
+        echo "PROG=/root/socatproxy/socatproxy" >> /etc/init.d/socatproxy
+        echo "start_service(){" >> /etc/init.d/socatproxy
+        echo "  procd_open_instance" >> /etc/init.d/socatproxy
+        echo "  procd_set_param command \$PROG" >> /etc/init.d/socatproxy
+        echo "  procd_set_param respawn" >> /etc/init.d/socatproxy
+        echo "  procd_close_instance" >> /etc/init.d/socatproxy
+        echo "}" >> /etc/init.d/socatproxy
 
-        chmod +x /etc/init.d/rms
+        chmod +x /etc/init.d/socatproxy
     fi
 
-    /etc/init.d/rms enable
-    /etc/init.d/rms start
+    /etc/init.d/socatproxy enable
+    /etc/init.d/socatproxy start
 }
 
 # Function to stop auto-start and stop the program
 wrt_disable_autostart() {
     echo "wrt_set_disable"
-    if [ -f /etc/init.d/rms ]; then
-        # Stop the "rms" service
-        /etc/init.d/rms stop
+    if [ -f /etc/init.d/socatproxy ]; then
+        # Stop the "socatproxy" service
+        /etc/init.d/socatproxy stop
 
         # Remove the init script
-        rm /etc/init.d/rms
+        rm /etc/init.d/socatproxy
     fi
 }
 
@@ -163,11 +163,11 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=$PATH_RMS/$PATH_EXEC
-WorkingDirectory=$PATH_RMS/
+ExecStart=$PATH_SocatProxy/$PATH_EXEC
+WorkingDirectory=$PATH_SocatProxy/
 Restart=always
-StandardOutput=file:$PATH_RMS/nohup.out
-StandardError=file:$PATH_RMS/err.log
+StandardOutput=file:$PATH_SocatProxy/nohup.out
+StandardError=file:$PATH_SocatProxy/err.log
 TimeoutStopSec=5
 
 [Install]
@@ -177,7 +177,7 @@ EOF
         sudo systemctl enable $SERVICE_NAME.service
         sudo systemctl start $SERVICE_NAME.service
     else
-        sudo sh -c "echo '${PATH_RMS}/${PATH_EXEC} &' >> /etc/rc.local"
+        sudo sh -c "echo '${PATH_SocatProxy}/${PATH_EXEC} &' >> /etc/rc.local"
         sudo chmod +x /etc/rc.local
     fi
 }
@@ -335,9 +335,9 @@ install() {
         esac
     fi
 
-    if [[ ! -d $PATH_RMS ]];then
-        mkdir $PATH_RMS
-        chmod 777 -R $PATH_RMS
+    if [[ ! -d $PATH_SocatProxy ]];then
+        mkdir $PATH_SocatProxy
+        chmod 777 -R $PATH_SocatProxy
     else
         echo "目录已存在, 无需重复创建, 继续执行安装。"
     fi
@@ -352,11 +352,11 @@ install() {
 
     echo "开始下载程序..."
 
-    wget -P $PATH_RMS "${TARGET_ROUTE}${TARGET_ROUTE_EXEC}" -O "${PATH_RMS}/${PATH_EXEC}" 1>/dev/null
+    wget -P $PATH_SocatProxy "${TARGET_ROUTE}${TARGET_ROUTE_EXEC}" -O "${PATH_SocatProxy}/${PATH_EXEC}" 1>/dev/null
 
     filterResult $? "下载程序"
 
-    chmod 777 -R "${PATH_RMS}/${PATH_EXEC}"
+    chmod 777 -R "${PATH_SocatProxy}/${PATH_EXEC}"
 
     change_limit
 
@@ -372,7 +372,7 @@ restart() {
 uninstall() {
     stop
 
-    rm -rf ${PATH_RMS}
+    rm -rf ${PATH_SocatProxy}
 
     if [ "$IS_OPENWRT" = true ]; then
         wrt_disable_autostart
@@ -433,11 +433,11 @@ stop() {
     sleep 1
 }
 
-echo "------RMS Linux------"
+echo "------SocatProxy Linux------"
 echo "1. 安装"
-echo "2. 停止运行RMS"
-echo "3. 重启RMS"
-echo "4. 卸载RMS"
+echo "2. 停止运行SocatProxy"
+echo "3. 重启SocatProxy"
+echo "4. 卸载SocatProxy"
 echo "---------------------"
 
 read -p "$(echo -e "[1-4]：")" comm
@@ -456,7 +456,7 @@ elif [ "$comm" = "4" ]; then
 fi
 
 
-echo "------RMS Linux------"
+echo "------SocatProxy Linux------"
 echo "当前CPU架构【${UNAME}】"
 echo 请选择对应架构安装选项。
 echo "---------------------"
@@ -478,7 +478,7 @@ TARGET_ROUTE_EXEC="${!VARNAME}"
 
 clear
 
-echo "------RMS Linux------"
+echo "------SocatProxy Linux------"
 echo "请选择下载线路:"
 echo "1. 线路1（github官方地址, 如无法下载请选择其他线路）"
 echo "2. 线路2"
