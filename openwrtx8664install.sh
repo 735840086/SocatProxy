@@ -109,7 +109,7 @@ check_process() {
     fi
 }
 
-# 设置开机启动
+# openwrt设置开机启动
 #!/bin/sh
 
 # Function to set up auto-start and start the program
