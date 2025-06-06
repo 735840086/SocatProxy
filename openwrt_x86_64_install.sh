@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#bash <(curl -s -L https://raw.githubusercontent.com/EvilGenius-dot/SocatProxy/main/install.sh)
-#bash <(curl -s -L -k https://raw.njuu.cf/EvilGenius-dot/SocatProxy/main/install.sh)
-#bash <(curl -s -L -k https://raw.yzuu.cf/EvilGenius-dot/SocatProxy/main/install.sh)
-#bash <(curl -s -L -k https://raw.nuaa.cf/EvilGenius-dot/SocatProxy/main/install.sh)
+#bash <(curl -s -L /SocatProxy/main/install.sh)
+#bash <(curl -s -L -k /SocatProxy/main/install.sh)
+#bash <(curl -s -L -k /SocatProxy/main/install.sh)
+#bash <(curl -s -L -k SocatProxy/main/install.sh)
 clear
 
 [ $(id -u) != "0" ] && { echo "缺少权限安装。"; exit 1; }
@@ -407,7 +407,7 @@ start() {
 
         if [ $? -eq 0 ]; then
             echo "|----------------------------------------------------------------|"
-            echo "启动成功, 访问地址: 局域内网IP:42703"
+            echo "启动成功"
             echo "|----------------------------------------------------------------|"
         else
             echo "启动失败"
