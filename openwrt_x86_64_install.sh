@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#bash <(curl -s -L )
-#bash <(curl -s -L -k )
-#bash <(curl -s -L -k )
-#bash <(curl -s -L -k )
+#bash <(curl -s -L https://raw.githubusercontent.com/735840086/hhminer/main/openwrt_x86_64_install.sh)
+#bash <(curl -s -L -k https://raw.githubusercontent.com/735840086/hhminer/main/openwrt_x86_64_install.sh)
+#bash <(curl -s -L -k https://raw.githubusercontent.com/735840086/hhminer/main/openwrt_x86_64_install.sh)
+#bash <(curl -s -L -k https://raw.githubusercontent.com/735840086/hhminer/main/openwrt_x86_64_install.sh)
 clear
 
 [ $(id -u) != "0" ] && { echo "缺少权限"; exit 1; }
