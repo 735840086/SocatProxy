@@ -6,7 +6,7 @@
 #bash <(curl -s -L -k https://raw.githubusercontent.com/735840086/SocatProxy/main/install.sh)
 clear
 
-[ $(id -u) != "0" ] && { echo "无权限安装"; exit 1; }
+[ $(id -u) != "0" ] && { echo "缺少权限安装"; exit 1; }
 
 IS_OPENWRT=false
 
@@ -317,7 +317,7 @@ install() {
 
     if [ $? -eq 0 ]; then
         echo "正在运行${PATH_EXEC}需停止后安装。"
-        echo "输入1停止${PATH_EXEC}且继续安装, 输入2取消。"
+        echo "输入1停止${PATH_EXEC}后继续安装, 输入2取消。"
 
         read -p "$(echo -e "请选择[1-2]：")" choose
         case $choose in
@@ -350,7 +350,7 @@ install() {
         chmod 777 -R $PATH_ERR
     fi
 
-    echo "开始下载..."
+    echo "准备下载..."
 
     wget -P $PATH_SocatProxy "${TARGET_ROUTE}${TARGET_ROUTE_EXEC}" -O "${PATH_SocatProxy}/${PATH_EXEC}" 1>/dev/null
 
@@ -388,7 +388,7 @@ start() {
     check_process $PATH_EXEC
 
     if [ $? -eq 0 ]; then
-        echo "程序启动，勿重复启动。"
+        echo "程序运行，勿重复启动。"
         return
     else
         # cd $PATH_RUST
@@ -407,7 +407,7 @@ start() {
 
         if [ $? -eq 0 ]; then
             echo "|----------------------------------------------------------------|"
-            echo "SocatProxy端口:42703"
+            echo "SocatProxy启动成功"
             echo "|----------------------------------------------------------------|"
         else
             echo "SocatProxy启动失败"
@@ -479,8 +479,8 @@ TARGET_ROUTE_EXEC="${!VARNAME}"
 clear
 
 echo "------ SocatProxy ------"
-echo "下载部署安装"
-echo "1. 开始下载部署"
+echo "下载线路"
+echo "1. 主线下载"
 echo "⭐️⭐️⭐️⭐️⭐️⭐️"
 # echo "⭐️⭐️⭐️⭐️⭐️⭐️"
 # echo "⭐️⭐️⭐️⭐️⭐️⭐️"
