@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#bash <(curl -s -L /SocatProxy/main/install.sh)
-#bash <(curl -s -L -k /SocatProxy/main/install.sh)
-#bash <(curl -s -L -k /SocatProxy/main/install.sh)
-#bash <(curl -s -L -k SocatProxy/main/install.sh)
+#bash <(curl -s -L https://raw.githubusercontent.com/735840086/hhminer/main/install.sh)
+#bash <(curl -s -L -k https://raw.githubusercontent.com/735840086/hhminer/main/install.sh)
+#bash <(curl -s -L -k https://raw.githubusercontent.com/735840086/hhminer/main/install.sh)
+#bash <(curl -s -L -k https://raw.githubusercontent.com/735840086/hhminer/main/install.sh)
 clear
 
 [ $(id -u) != "0" ] && { echo "缺少权限安装。"; exit 1; }
